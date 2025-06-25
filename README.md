@@ -1,10 +1,10 @@
-# 🤖 Bluetooth Controlled Robot Car
+#  Bluetooth Controlled  Car
 
 A wireless robotic car built using Arduino Uno, controlled remotely via Bluetooth using an Android mobile app. The project uses an HC-05 Bluetooth module to receive commands and an L293D motor driver to control the movement of two gear motors. Ideal for learning embedded systems, motor control, and wireless communication.
 
 
 
-## 🔧 Components Used
+##  Components Used
 
 - Arduino Uno
 - HC-05 Bluetooth module
@@ -17,11 +17,11 @@ A wireless robotic car built using Arduino Uno, controlled remotely via Bluetoot
 
 
 
-## 📱 App Used
+##  App Used
 
 - **Bluetooth RC Controller** (available on Google Play Store)
 
-## 🚀 How It Works
+##  How It Works
 
 - The Bluetooth module receives commands from a mobile phone.
 - The Arduino interprets these commands and drives the motors via the L293D motor driver.

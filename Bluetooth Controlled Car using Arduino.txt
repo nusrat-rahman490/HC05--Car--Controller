@@ -1,0 +1,84 @@
+
+#define in1 2
+#define in2 3
+#define in3 4
+#define in4 5
+#define ena 9
+#define enb 10
+
+void setup() {
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(in3, OUTPUT);
+  pinMode(in4, OUTPUT);
+  pinMode(ena, OUTPUT);
+  pinMode(enb, OUTPUT);
+
+  stopAll();
+
+  Serial.begin(9600);
+}
+
+void loop() {
+  if (Serial.available()) {
+    char input = Serial.read();
+    input = toupper(input);
+
+    if (input == 'F') {
+      driveForward();
+    } else if (input == 'B') {
+      driveBackward();
+    } else if (input == 'L') {
+      turnLeft();
+    } else if (input == 'R') {
+      turnRight();
+    } else {
+      stopAll();
+    }
+  }
+}
+
+void driveForward() {
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  digitalWrite(in3, HIGH);
+  digitalWrite(in4, LOW);
+  analogWrite(ena, 180);
+  analogWrite(enb, 180);
+}
+
+void driveBackward() {
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, HIGH);
+  analogWrite(ena, 180);
+  analogWrite(enb, 180);
+}
+
+void turnLeft() {
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+  digitalWrite(in3, HIGH);
+  digitalWrite(in4, LOW);
+  analogWrite(ena, 160);
+  analogWrite(enb, 160);
+}
+
+void turnRight() {
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, HIGH);
+  analogWrite(ena, 160);
+  analogWrite(enb, 160);
+}
+
+void stopAll() {
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, LOW);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, LOW);
+  analogWrite(ena, 0);
+  analogWrite(enb, 0);
+}
